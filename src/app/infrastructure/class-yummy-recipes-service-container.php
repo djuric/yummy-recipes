@@ -24,74 +24,76 @@ use Yummy_Recipes\Includes\Yummy_Recipes_Service;
  * @subpackage Yummy_Recipes/Infrastructure
  * @author     Zarko
  */
-final class Yummy_Recipes_Service_Container
-{
-    /**
-     * Instance of the Yummy_Recipes_Service_Container class.
-     *
-     * @var  Yummy_Recipes_Service_Container
-     */
-    protected static $instance;
+final class Yummy_Recipes_Service_Container {
 
-    /**
-     * @var Yummy_Recipes_Service
-     */
-    private $yummy_recipes_service;
+	/**
+	 * Instance of the Yummy_Recipes_Service_Container class.
+	 *
+	 * @var  Yummy_Recipes_Service_Container
+	 */
+	protected static $instance;
 
-    /**
-     * @var Yummy_Recipes_Loader
-     */
-    private $yummy_recipes_loader;
+	/**
+	 * Instance of the Yummy_Recipes_Service class.
+	 * 
+	 * @var Yummy_Recipes_Service
+	 */
+	private $yummy_recipes_service;
 
-    protected function __construct()
-    {
-    }
+	/**
+	 * Instance of the Yummy_Recipes_Loader class.
+	 * 
+	 * @var Yummy_Recipes_Loader
+	 */
+	private $yummy_recipes_loader;
 
-    /**
-     * Get service container instance
-     *
-     * @return Yummy_Recipes_Service_Container
-     *
-     * @since    1.0.0
-     */
-    public static function get_instance(): Yummy_Recipes_Service_Container
-    {
-        if (!self::$instance) {
-            self::$instance = new Yummy_Recipes_Service_Container();
-        }
-        return self::$instance;
-    }
+	/**
+	 * Protected constructor to prevent creating a new instance directly.
+	 */
+	protected function __construct() {  }
 
-    /**
-     * Creates and returns new Yummy_Recipes_Loader object.
-     *
-     * @return Yummy_Recipes_Loader
-     *
-     * @since    1.0.0
-     */
-    public function yummy_recipes_loader(): Yummy_Recipes_Loader
-    {
-        if (null === $this->yummy_recipes_loader) {
-            $this->yummy_recipes_loader = new Yummy_Recipes_Loader();
-        }
-        return $this->yummy_recipes_loader;
-    }
+	/**
+	 * Get service container instance
+	 *
+	 * @return Yummy_Recipes_Service_Container
+	 *
+	 * @since    1.0.0
+	 */
+	public static function get_instance(): Yummy_Recipes_Service_Container {
+		if ( ! self::$instance ) {
+			self::$instance = new Yummy_Recipes_Service_Container();
+		}
+		return self::$instance;
+	}
 
-    /**
-     * Creates and returns new Yummy_Recipes_Service object.
-     *
-     * @return Yummy_Recipes_Service
-     *
-     * @since    1.0.0
-     */
-    public function yummy_recipes_service(): Yummy_Recipes_Service
-    {
-        if (null === $this->yummy_recipes_service) {
-            $this->yummy_recipes_service = new Yummy_Recipes_Service(
-                $this->yummy_recipes_loader()
-            );
-        }
-        return $this->yummy_recipes_service;
-    }
+	/**
+	 * Creates and returns new Yummy_Recipes_Loader object.
+	 *
+	 * @return Yummy_Recipes_Loader
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummy_recipes_loader(): Yummy_Recipes_Loader {
+		if ( null === $this->yummy_recipes_loader ) {
+			$this->yummy_recipes_loader = new Yummy_Recipes_Loader();
+		}
+		return $this->yummy_recipes_loader;
+	}
+
+	/**
+	 * Creates and returns new Yummy_Recipes_Service object.
+	 *
+	 * @return Yummy_Recipes_Service
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummy_recipes_service(): Yummy_Recipes_Service {
+		if ( null === $this->yummy_recipes_service ) {
+			$this->yummy_recipes_service = new Yummy_Recipes_Service(
+				$this->yummy_recipes_loader()
+			);
+		}
+		return $this->yummy_recipes_service;
+	}
 
 }

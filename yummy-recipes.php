@@ -18,7 +18,7 @@
 use Yummy_Recipes\Infrastructure\Yummy_Recipes_Service_Container;
 
 if ( ! defined( 'WPINC' ) ) {
-    die;
+	die;
 }
 
 /**
@@ -35,5 +35,5 @@ require YUMMY_RECIPES_PLUGIN_DIR . 'vendor/autoload.php';
  *
  * @since    1.0.0
  */
-$plugin = Yummy_Recipes_Service_Container::get_instance()->yummy_recipes_service();
-$plugin->run();
+$yummy_recipes = Yummy_Recipes_Service_Container::get_instance()->yummy_recipes_service();
+$yummy_recipes->run();

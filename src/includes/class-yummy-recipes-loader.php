@@ -57,9 +57,9 @@ class Yummy_Recipes_Loader {
 	 */
 	public function __construct() {
 
-		$this->shortcodes = [];
-		$this->actions    = [];
-		$this->filters    = [];
+		$this->shortcodes = array();
+		$this->actions    = array();
+		$this->filters    = array();
 
 	}
 
@@ -120,13 +120,13 @@ class Yummy_Recipes_Loader {
 	 * @return   array                                  The collection of actions and filters registered with WordPress.
 	 */
 	private function add( array $hooks, string $hook, $component, string $callback, int $priority, int $accepted_args ): array {
-		$hooks[] = [
+		$hooks[] = array(
 			'hook'          => $hook,
 			'component'     => $component,
 			'callback'      => $callback,
 			'priority'      => $priority,
 			'accepted_args' => $accepted_args,
-        ];
+		);
 
 		return $hooks;
 	}

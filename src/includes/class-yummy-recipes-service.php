@@ -27,89 +27,84 @@ use Yummy_Recipes\Infrastructure\Yummy_Recipes_Service_Container;
  * @subpackage Yummy_Recipes/Includes
  * @author     Zarko
  */
-class Yummy_Recipes_Service
-{
+class Yummy_Recipes_Service {
 
-    /**
-     * The loader that's responsible for maintaining and registering all hooks that power
-     * the plugin.
-     *
-     * @since    1.0.0
-     * @access   protected
-     * @var      Yummy_Recipes_Loader $loader Maintains and registers all hooks for the plugin.
-     */
-    protected $loader;
 
-    /**
-     * The current version of the plugin.
-     *
-     * @since    1.0.0
-     * @access   protected
-     * @var      string $version
-     */
-    protected $version;
+	/**
+	 * The loader that's responsible for maintaining and registering all hooks that power
+	 * the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Yummy_Recipes_Loader $loader Maintains and registers all hooks for the plugin.
+	 */
+	protected $loader;
 
-    /**
-     * Define the core functionality of the plugin.
-     *
-     * Set the plugin name and the plugin version that can be used throughout the plugin.
-     * Load the dependencies, define the locale, and set the hooks for the admin area and
-     * the public-facing side of the site.
-     *
-     * @param Yummy_Recipes_Loader $loader Instance of Yummy_Recipes_Loader class.
-     *
-     * @since    1.0.0
-     */
-    public function __construct( Yummy_Recipes_Loader $loader )
-    {
-        if (\defined('YUMMY_RECIPES_VERSION')) {
-            $this->version = YUMMY_RECIPES_VERSION;
-        } else {
-            $this->version = '1.0.0';
-        }
-        $this->yummy_recipes = 'yummy-recipes';
-        $this->loader = $loader;
-        
-        $this->init();
-    }
+	/**
+	 * The current version of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string $version
+	 */
+	protected $version;
 
-    /**
-     * Initialises all necessary updates, locale and cron jobs.
-     */
-    private function init(): void
-    {
-    }
+	/**
+	 * Define the core functionality of the plugin.
+	 *
+	 * Set the plugin name and the plugin version that can be used throughout the plugin.
+	 * Load the dependencies, define the locale, and set the hooks for the admin area and
+	 * the public-facing side of the site.
+	 *
+	 * @param Yummy_Recipes_Loader $loader Instance of Yummy_Recipes_Loader class.
+	 *
+	 * @since    1.0.0
+	 */
+	public function __construct( Yummy_Recipes_Loader $loader ) {
+		if ( \defined( 'YUMMY_RECIPES_VERSION' ) ) {
+			$this->version = YUMMY_RECIPES_VERSION;
+		} else {
+			$this->version = '1.0.0';
+		}
+		$this->yummy_recipes = 'yummy-recipes';
+		$this->loader        = $loader;
+		
+		$this->init();
+	}
 
-    /**
-     * Run the loader to execute all of the hooks with WordPress.
-     *
-     * @since    1.0.0
-     */
-    public function run(): void
-    {
-        $this->loader->run();
-    }
+	/**
+	 * Initialises all necessary updates, locale and cron jobs.
+	 */
+	private function init(): void {
+	}
 
-    /**
-     * The reference to the class that orchestrates the hooks with the plugin.
-     *
-     * @return    Yummy_Recipes_Loader    Orchestrates the hooks of the plugin.
-     * @since     1.0.0
-     */
-    public function get_loader(): Yummy_Recipes_Loader
-    {
-        return $this->loader;
-    }
+	/**
+	 * Run the loader to execute all of the hooks with WordPress.
+	 *
+	 * @since    1.0.0
+	 */
+	public function run(): void {
+		$this->loader->run();
+	}
 
-    /**
-     * Retrieve the version number of the plugin.
-     *
-     * @return    string    The version number of the plugin.
-     * @since     1.0.0
-     */
-    public function get_version(): string
-    {
-        return $this->version;
-    }
+	/**
+	 * The reference to the class that orchestrates the hooks with the plugin.
+	 *
+	 * @return    Yummy_Recipes_Loader    Orchestrates the hooks of the plugin.
+	 * @since     1.0.0
+	 */
+	public function get_loader(): Yummy_Recipes_Loader {
+		return $this->loader;
+	}
+
+	/**
+	 * Retrieve the version number of the plugin.
+	 *
+	 * @return    string    The version number of the plugin.
+	 * @since     1.0.0
+	 */
+	public function get_version(): string {
+		return $this->version;
+	}
 
 }
