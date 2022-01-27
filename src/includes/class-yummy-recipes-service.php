@@ -29,7 +29,6 @@ use Yummy_Recipes\Infrastructure\Yummy_Recipes_Service_Container;
  */
 class Yummy_Recipes_Service {
 
-
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
@@ -50,6 +49,15 @@ class Yummy_Recipes_Service {
 	protected $version;
 
 	/**
+	 * The admin-specific functionality of the plugin.
+	 * 
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Yummy_Recipes_Admin $admin The admin-specific functionality of the plugin.
+	 */
+	protected $admin;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -68,6 +76,9 @@ class Yummy_Recipes_Service {
 		}
 		$this->yummy_recipes = 'yummy-recipes';
 		$this->loader        = $loader;
+
+		$this->service_container = Yummy_Recipes_Service_Container::get_instance();
+		$this->admin             = $this->service_container->yummi_recipes_admin();
 		
 		$this->init();
 	}
@@ -76,6 +87,7 @@ class Yummy_Recipes_Service {
 	 * Initialises all necessary updates, locale and cron jobs.
 	 */
 	private function init(): void {
+		$this->define_admin_hooks();
 	}
 
 	/**
@@ -85,6 +97,13 @@ class Yummy_Recipes_Service {
 	 */
 	public function run(): void {
 		$this->loader->run();
+	}
+
+	/**
+	 * Admin related hooks.
+	 */
+	public function define_admin_hooks(): void {
+		$this->loader->add_action( 'init', $this->admin, 'register_post_type' );
 	}
 
 	/**

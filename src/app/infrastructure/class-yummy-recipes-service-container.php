@@ -11,6 +11,7 @@ namespace Yummy_Recipes\Infrastructure;
 
 use Yummy_Recipes\Includes\Yummy_Recipes_Loader;
 use Yummy_Recipes\Includes\Yummy_Recipes_Service;
+use Yummy_Recipes\Admin\Yummy_Recipes_Admin;
 
 /**
  * Initialise all needed services.
@@ -46,6 +47,13 @@ final class Yummy_Recipes_Service_Container {
 	 * @var Yummy_Recipes_Loader
 	 */
 	private $yummy_recipes_loader;
+
+	/**
+	 * Instance of the Yummy_Recipes_Admin class.
+	 * 
+	 * @var Yummy_Recipes_Admin
+	 */
+	private $yummi_recipes_admin;
 
 	/**
 	 * Protected constructor to prevent creating a new instance directly.
@@ -94,6 +102,20 @@ final class Yummy_Recipes_Service_Container {
 			);
 		}
 		return $this->yummy_recipes_service;
+	}
+
+	/**
+	 * Creates and returns new Yummy_Recipes_Admin object.
+	 *
+	 * @return Yummy_Recipes_Admin
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummi_recipes_admin(): Yummy_Recipes_Admin {
+		if ( null === $this->yummi_recipes_admin ) {
+			$this->yummi_recipes_admin = new Yummy_Recipes_Admin();
+		}
+		return $this->yummi_recipes_admin;
 	}
 
 }

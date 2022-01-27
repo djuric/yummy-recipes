@@ -29,6 +29,7 @@ class ComposerStaticInit181c3def2a978e9e8e5a76a458fc709b
     );
 
     public static $classMap = array (
+        'Yummy_Recipes\\Admin\\Yummy_Recipes_Admin' => __DIR__ . '/../..' . '/src/app/admin/class-yummy-recipes-admin.php',
         'Yummy_Recipes\\Includes\\Yummy_Recipes_Loader' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-loader.php',
         'Yummy_Recipes\\Includes\\Yummy_Recipes_Service' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-service.php',
         'Yummy_Recipes\\Infrastructure\\Yummy_Recipes_Service_Container' => __DIR__ . '/../..' . '/src/app/infrastructure/class-yummy-recipes-service-container.php',

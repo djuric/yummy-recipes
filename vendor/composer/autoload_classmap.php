@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Yummy_Recipes\\Admin\\Yummy_Recipes_Admin' => $baseDir . '/src/app/admin/class-yummy-recipes-admin.php',
     'Yummy_Recipes\\Includes\\Yummy_Recipes_Loader' => $baseDir . '/src/includes/class-yummy-recipes-loader.php',
     'Yummy_Recipes\\Includes\\Yummy_Recipes_Service' => $baseDir . '/src/includes/class-yummy-recipes-service.php',
     'Yummy_Recipes\\Infrastructure\\Yummy_Recipes_Service_Container' => $baseDir . '/src/app/infrastructure/class-yummy-recipes-service-container.php',
