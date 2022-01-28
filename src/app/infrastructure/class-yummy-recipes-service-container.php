@@ -12,6 +12,7 @@ namespace Yummy_Recipes\Infrastructure;
 use Yummy_Recipes\Includes\Yummy_Recipes_Loader;
 use Yummy_Recipes\Includes\Yummy_Recipes_Service;
 use Yummy_Recipes\Includes\Yummy_Recipes_Block_Editor;
+use Yummy_Recipes\Includes\Yummy_Recipes_Rest_Api;
 use Yummy_Recipes\Admin\Yummy_Recipes_Admin;
 use Yummy_Recipes\Blocks\Yummy_Recipes_Recipe_Search_Block;
 
@@ -56,6 +57,13 @@ final class Yummy_Recipes_Service_Container {
 	 * @var Yummy_Recipes_Admin
 	 */
 	private $yummy_recipes_admin;
+
+	/**
+	 * Instance of the Yummy_Recipes_Rest_Api class.
+	 * 
+	 * @var Yummy_Recipes_Rest_Api
+	 */
+	private $yummy_rest_api;
 
 	/**
 	 * Instance of the Yummy_Recipes_Block_Editor class.
@@ -114,7 +122,10 @@ final class Yummy_Recipes_Service_Container {
 	public function yummy_recipes_service(): Yummy_Recipes_Service {
 		if ( null === $this->yummy_recipes_service ) {
 			$this->yummy_recipes_service = new Yummy_Recipes_Service(
-				$this->yummy_recipes_loader()
+				$this->yummy_recipes_loader(),
+				$this->yummy_recipes_admin(),
+				$this->yummy_recipes_rest_api(),
+				$this->yummy_recipes_block_editor(),
 			);
 		}
 		return $this->yummy_recipes_service;
@@ -132,6 +143,20 @@ final class Yummy_Recipes_Service_Container {
 			$this->yummy_recipes_admin = new Yummy_Recipes_Admin();
 		}
 		return $this->yummy_recipes_admin;
+	}
+
+	/**
+	 * Creates and returns new Yummy_Recipes_Rest_Api object.
+	 *
+	 * @return Yummy_Recipes_Rest_Api
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummy_recipes_rest_api(): Yummy_Recipes_Rest_Api {
+		if ( null === $this->yummy_rest_api ) {
+			$this->yummy_rest_api = new Yummy_Recipes_Rest_Api();
+		}
+		return $this->yummy_rest_api;
 	}
 
 	/**

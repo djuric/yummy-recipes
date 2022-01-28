@@ -33,10 +33,11 @@ class Yummy_Recipes_Block_Editor {
 	/**
 	 * Initialize block editor.
 	 * 
-	 * @param Yummy_Recipes_Loader $loader Instance of Yummy_Recipes_Loader class.
+	 * @param Yummy_Recipes_Loader              $loader Instance of Yummy_Recipes_Loader class.
+	 * @param Yummy_Recipes_Recipe_Search_Block $recipe_search_block Instance of Yummy_Recipes_Recipe_Search_Block class.
 	 */
 	public function __construct( Yummy_Recipes_Loader $loader, Yummy_Recipes_Recipe_Search_Block $recipe_search_block ) {
-		$this->loader = $loader;
+		$this->loader                            = $loader;
 		$this->yummy_recipes_recipe_search_block = $recipe_search_block;
 	}
 

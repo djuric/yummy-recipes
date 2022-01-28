@@ -7,6 +7,8 @@
  * @subpackage Yummy_Recipes/Includes
  */
 
+namespace Yummy_Recipes\Includes;
+
 /**
  * REST API main plugin class.
  */

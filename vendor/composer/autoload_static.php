@@ -30,12 +30,12 @@ class ComposerStaticInit181c3def2a978e9e8e5a76a458fc709b
 
     public static $classMap = array (
         'Yummy_Recipes\\Admin\\Yummy_Recipes_Admin' => __DIR__ . '/../..' . '/src/app/admin/class-yummy-recipes-admin.php',
-        'Yummy_Recipes\\Blocks\\Yummy_Recipes_Recipe_Search_Block' => __DIR__ . '/../..' . '/src/app/blocks/class-yummy-recipes-recipe-search.php',
+        'Yummy_Recipes\\Blocks\\Yummy_Recipes_Recipe_Search_Block' => __DIR__ . '/../..' . '/src/app/blocks/class-yummy-recipes-recipe-search-block.php',
         'Yummy_Recipes\\Includes\\Yummy_Recipes_Block_Editor' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-block-editor.php',
         'Yummy_Recipes\\Includes\\Yummy_Recipes_Loader' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-loader.php',
+        'Yummy_Recipes\\Includes\\Yummy_Recipes_Rest_Api' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-rest-api.php',
         'Yummy_Recipes\\Includes\\Yummy_Recipes_Service' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-service.php',
         'Yummy_Recipes\\Infrastructure\\Yummy_Recipes_Service_Container' => __DIR__ . '/../..' . '/src/app/infrastructure/class-yummy-recipes-service-container.php',
-        'Yummy_Recipes_Rest_Api' => __DIR__ . '/../..' . '/src/includes/class-yummy-recipes-rest-api.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

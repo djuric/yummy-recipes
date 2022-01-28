@@ -7,10 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Yummy_Recipes\\Admin\\Yummy_Recipes_Admin' => $baseDir . '/src/app/admin/class-yummy-recipes-admin.php',
-    'Yummy_Recipes\\Blocks\\Yummy_Recipes_Recipe_Search_Block' => $baseDir . '/src/app/blocks/class-yummy-recipes-recipe-search.php',
+    'Yummy_Recipes\\Blocks\\Yummy_Recipes_Recipe_Search_Block' => $baseDir . '/src/app/blocks/class-yummy-recipes-recipe-search-block.php',
     'Yummy_Recipes\\Includes\\Yummy_Recipes_Block_Editor' => $baseDir . '/src/includes/class-yummy-recipes-block-editor.php',
     'Yummy_Recipes\\Includes\\Yummy_Recipes_Loader' => $baseDir . '/src/includes/class-yummy-recipes-loader.php',
+    'Yummy_Recipes\\Includes\\Yummy_Recipes_Rest_Api' => $baseDir . '/src/includes/class-yummy-recipes-rest-api.php',
     'Yummy_Recipes\\Includes\\Yummy_Recipes_Service' => $baseDir . '/src/includes/class-yummy-recipes-service.php',
     'Yummy_Recipes\\Infrastructure\\Yummy_Recipes_Service_Container' => $baseDir . '/src/app/infrastructure/class-yummy-recipes-service-container.php',
-    'Yummy_Recipes_Rest_Api' => $baseDir . '/src/includes/class-yummy-recipes-rest-api.php',
 );
