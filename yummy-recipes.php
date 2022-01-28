@@ -27,6 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'YUMMY_RECIPES_VERSION', '1.0.0' );
 define( 'YUMMY_RECIPES_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'YUMMY_RECIPES_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'YUMMY_RECIPES_POST_TYPE', 'yummy_recipes' );
 
 require YUMMY_RECIPES_PLUGIN_DIR . 'vendor/autoload.php';
 

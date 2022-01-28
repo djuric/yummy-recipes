@@ -74,9 +74,8 @@ class Yummy_Recipes_Service {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->yummy_recipes = 'yummy-recipes';
-		$this->loader        = $loader;
-
+		
+		$this->loader            = $loader;
 		$this->service_container = Yummy_Recipes_Service_Container::get_instance();
 		$this->admin             = $this->service_container->yummi_recipes_admin();
 		
@@ -88,6 +87,8 @@ class Yummy_Recipes_Service {
 	 */
 	private function init(): void {
 		$this->define_admin_hooks();
+		$this->set_block_editor();
+		$this->set_rest_api();
 	}
 
 	/**
@@ -104,6 +105,25 @@ class Yummy_Recipes_Service {
 	 */
 	public function define_admin_hooks(): void {
 		$this->loader->add_action( 'init', $this->admin, 'register_post_type' );
+	}
+
+	/**
+	 * Block editor setup.
+	 */
+	public function set_block_editor(): void { 
+		$block_editor = new \Yummy_Recipes_Block_Editor();
+
+		$block_editor->register_post_meta();
+		$this->loader->add_action( 'enqueue_block_editor_assets', $block_editor, 'block_editor_assets' );
+	}
+
+	/**
+	 * REST API setup.
+	 */
+	public function set_rest_api(): void {
+		$rest_api = new \Yummy_Recipes_Rest_Api();
+
+		$this->loader->add_action( 'rest_api_init', $rest_api, 'include_featured_image_url' );
 	}
 
 	/**

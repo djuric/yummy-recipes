@@ -25,10 +25,8 @@ class Yummy_Recipes_Admin {
 	 * @since   1.0.0
 	 */
 	public function register_post_type(): void { 
-		$post_type_name = 'yummy_recipes';
-
 		register_post_type(
-			$post_type_name,
+			YUMMY_RECIPES_POST_TYPE,
 			array(
 				'labels'       => array(
 					'name'          => __( 'Recipes', 'yummy-recipes' ),
@@ -46,6 +44,9 @@ class Yummy_Recipes_Admin {
 					'slug' => 'recipe',
 				),
 				'supports'     => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields' ),
+				'template'     => array(
+					array( 'yummy-recipes/recipe' ),
+				),
 			)
 		);
 
