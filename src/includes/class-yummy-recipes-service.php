@@ -58,6 +58,15 @@ class Yummy_Recipes_Service {
 	protected $admin;
 
 	/**
+	 * Block editor setup.
+	 * 
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Yummy_Recipes_Block_Editor $block_editor Block editor setup.
+	 */
+	protected $block_editor;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -77,7 +86,8 @@ class Yummy_Recipes_Service {
 		
 		$this->loader            = $loader;
 		$this->service_container = Yummy_Recipes_Service_Container::get_instance();
-		$this->admin             = $this->service_container->yummi_recipes_admin();
+		$this->admin             = $this->service_container->yummy_recipes_admin();
+		$this->block_editor		 = $this->service_container->yummy_recipes_block_editor();
 		
 		$this->init();
 	}
@@ -111,10 +121,9 @@ class Yummy_Recipes_Service {
 	 * Block editor setup.
 	 */
 	public function set_block_editor(): void { 
-		$block_editor = new \Yummy_Recipes_Block_Editor();
-
-		$block_editor->register_post_meta();
-		$this->loader->add_action( 'enqueue_block_editor_assets', $block_editor, 'block_editor_assets' );
+		$this->block_editor->register_post_meta();
+		$this->block_editor->register_dynamic_blocks();
+		$this->loader->add_action( 'enqueue_block_editor_assets',$this->block_editor, 'block_editor_assets' );
 	}
 
 	/**

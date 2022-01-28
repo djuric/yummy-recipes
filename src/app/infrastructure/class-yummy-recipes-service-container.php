@@ -11,7 +11,9 @@ namespace Yummy_Recipes\Infrastructure;
 
 use Yummy_Recipes\Includes\Yummy_Recipes_Loader;
 use Yummy_Recipes\Includes\Yummy_Recipes_Service;
+use Yummy_Recipes\Includes\Yummy_Recipes_Block_Editor;
 use Yummy_Recipes\Admin\Yummy_Recipes_Admin;
+use Yummy_Recipes\Blocks\Yummy_Recipes_Recipe_Search_Block;
 
 /**
  * Initialise all needed services.
@@ -53,7 +55,21 @@ final class Yummy_Recipes_Service_Container {
 	 * 
 	 * @var Yummy_Recipes_Admin
 	 */
-	private $yummi_recipes_admin;
+	private $yummy_recipes_admin;
+
+	/**
+	 * Instance of the Yummy_Recipes_Block_Editor class.
+	 *
+	 * @var Yummy_Recipes_Block_Editor
+	 */
+	private $yummy_recipes_block_editor;
+
+	/**
+	 * Instance of the Yummy_Recipes_Recipe_Search_Block class.
+	 *
+	 * @var Yummy_Recipes_Recipe_Search_Block
+	 */
+	private $yummy_recipes_recipe_search_block;
 
 	/**
 	 * Protected constructor to prevent creating a new instance directly.
@@ -111,11 +127,42 @@ final class Yummy_Recipes_Service_Container {
 	 *
 	 * @since    1.0.0
 	 */
-	public function yummi_recipes_admin(): Yummy_Recipes_Admin {
-		if ( null === $this->yummi_recipes_admin ) {
-			$this->yummi_recipes_admin = new Yummy_Recipes_Admin();
+	public function yummy_recipes_admin(): Yummy_Recipes_Admin {
+		if ( null === $this->yummy_recipes_admin ) {
+			$this->yummy_recipes_admin = new Yummy_Recipes_Admin();
 		}
-		return $this->yummi_recipes_admin;
+		return $this->yummy_recipes_admin;
+	}
+
+	/**
+	 * Creates and returns new Yummy_Recipes_Block_Editor object.
+	 *
+	 * @return Yummy_Recipes_Block_Editor
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummy_recipes_block_editor(): Yummy_Recipes_Block_Editor {
+		if ( null === $this->yummy_recipes_block_editor ) {
+			$this->yummy_recipes_block_editor = new Yummy_Recipes_Block_Editor(
+				$this->yummy_recipes_loader(),
+				$this->yummy_recipes_recipe_search_block(),
+			);
+		}
+		return $this->yummy_recipes_block_editor;
+	}
+
+	/**
+	 * Creates and returns new Yummy_Recipes_Recipe_Search_Block object.
+	 *
+	 * @return Yummy_Recipes_Recipe_Search_Block
+	 *
+	 * @since    1.0.0
+	 */
+	public function yummy_recipes_recipe_search_block(): Yummy_Recipes_Recipe_Search_Block {
+		if ( null === $this->yummy_recipes_recipe_search_block ) {
+			$this->yummy_recipes_recipe_search_block = new Yummy_Recipes_Recipe_Search_Block();
+		}
+		return $this->yummy_recipes_recipe_search_block;
 	}
 
 }
