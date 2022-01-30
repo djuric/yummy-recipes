@@ -21,4 +21,4 @@ WordPress plugin for creating and searching recipes.
 
 - Design will look different depending on the theme being used. Example below is Twenty Twenty theme with Full Width page template.
 
-![teamwork-flip](https://github.com/djuric/yummy-recipes/blob/main/assets/images/recipes-search.gif)
+![teamwork-flip](https://github.com/djuric/gifs/blob/main/recipes-search.gif)
