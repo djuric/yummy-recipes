@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,oCAAoC,CAAC;EACnC,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "editor.scss",
+        "recipe/editor.scss"
+    ],
+    "names": [],
+    "file": "editor.css"
+}

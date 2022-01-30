@@ -62,6 +62,7 @@ class Yummy_Recipes_Block_Editor {
 				'show_in_rest' => true,
 				'single'       => true,
 				'type'         => 'number',
+				'default'      => 5,
 			) 
 		);
 
@@ -72,6 +73,7 @@ class Yummy_Recipes_Block_Editor {
 				'show_in_rest' => true,
 				'single'       => true,
 				'type'         => 'number',
+				'default'      => 60,
 			) 
 		);
 	}
@@ -79,7 +81,8 @@ class Yummy_Recipes_Block_Editor {
 	/**
 	 * Load dynamic file of the block if exists
 	 */
-	public function register_dynamic_blocks() {
+	public function register_dynamic_blocks(): void {
+		$this->loader->add_action( 'wp_enqueue_scripts', $this->yummy_recipes_recipe_search_block, 'register_assets' );
 		$this->loader->add_action( 'init', $this->yummy_recipes_recipe_search_block, 'register' );
 	}
 }

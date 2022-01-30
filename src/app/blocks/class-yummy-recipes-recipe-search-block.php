@@ -25,11 +25,33 @@ class Yummy_Recipes_Recipe_Search_Block {
 			)
 		);
 	}
+
+	/**
+	 * Register block assets.
+	 */
+	public function register_assets(): void {
+		if ( ! has_block( 'yummy-recipes/recipe-search' ) ) {
+			return;
+		}
+		
+		$path = YUMMY_RECIPES_PLUGIN_URL . 'frontend/build/static';
+
+		wp_enqueue_script( 'recipe-search-script', $path . '/js/main.js', array(), '1.0', true );
+		wp_enqueue_style( 'recipe-search-style', $path . '/css/main.css', array(), '1.0', 'all' );
+
+		wp_localize_script(
+			'recipe-search-script',
+			'yummy_recipes',
+			array(
+				'ajax_url' => get_rest_url( null, 'wp/v2/' ),
+			)
+		);
+	}
 	
 	/**
 	 * Render the block.
 	 */
 	public function render(): string {
-		return '<p>Search recipe block<p>';
+		return '<div id="yummy_recipes_search"></div>';
 	}
 } 

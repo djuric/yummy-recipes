@@ -127,6 +127,7 @@ class Yummy_Recipes_Service {
 	 */
 	public function define_admin_hooks(): void {
 		$this->loader->add_action( 'init', $this->admin, 'register_post_type' );
+		$this->loader->add_action( 'init', $this->admin, 'register_image_size' );
 	}
 
 	/**
@@ -143,6 +144,7 @@ class Yummy_Recipes_Service {
 	 */
 	public function set_rest_api(): void {
 		$this->loader->add_action( 'rest_api_init', $this->rest_api, 'include_featured_image_url' );
+		$this->loader->add_filter( 'rest_prepare_' . YUMMY_RECIPES_POST_TYPE, $this->rest_api, 'trim_excerpt', 10, 3 );
 	}
 
 	/**

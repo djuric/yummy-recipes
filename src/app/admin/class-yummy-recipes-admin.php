@@ -49,6 +49,12 @@ class Yummy_Recipes_Admin {
 				),
 			)
 		);
+	}
 
+	/**
+	 * Register necessary image size for recipes.
+	 */
+	public function register_image_size(): void {
+		add_image_size( 'yummy-recipes-thumbnail', 680, 480, true );
 	}
 }

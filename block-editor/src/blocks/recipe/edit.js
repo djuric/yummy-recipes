@@ -27,7 +27,7 @@ const Edit = ({
         <RangeControl
           label={__('Rating', 'yummy-recipes')}
           value={rating}
-          onChange={(rating) => setAttributes({ rating })}
+          onChange={(rating) => setAttributes({ rating: parseInt(rating) })}
           min={1}
           max={5}
         />
@@ -36,7 +36,9 @@ const Edit = ({
         <NumberControl
           label={__('Cooking Time (in minutes)', 'yummy-recipes')}
           isShiftStepEnabled={true}
-          onChange={(cookingTime) => setAttributes({ cookingTime })}
+          onChange={(cookingTime) =>
+            setAttributes({ cookingTime: parseInt(cookingTime) })
+          }
           shiftStep={10}
           value={cookingTime}
           required={true}
