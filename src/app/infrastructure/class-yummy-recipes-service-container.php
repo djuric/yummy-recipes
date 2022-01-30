@@ -125,7 +125,7 @@ final class Yummy_Recipes_Service_Container {
 				$this->yummy_recipes_loader(),
 				$this->yummy_recipes_admin(),
 				$this->yummy_recipes_rest_api(),
-				$this->yummy_recipes_block_editor(),
+				$this->yummy_recipes_block_editor()
 			);
 		}
 		return $this->yummy_recipes_service;
@@ -170,7 +170,7 @@ final class Yummy_Recipes_Service_Container {
 		if ( null === $this->yummy_recipes_block_editor ) {
 			$this->yummy_recipes_block_editor = new Yummy_Recipes_Block_Editor(
 				$this->yummy_recipes_loader(),
-				$this->yummy_recipes_recipe_search_block(),
+				$this->yummy_recipes_recipe_search_block()
 			);
 		}
 		return $this->yummy_recipes_block_editor;
